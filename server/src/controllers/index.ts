@@ -1,1 +1,1 @@
-export { getAllProjectController } from "./project.controller";
+export { getAllProjectController } from "./getProjectsController";
