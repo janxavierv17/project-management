@@ -44,7 +44,6 @@ async function main() {
 
 		try {
 			for (const data of jsonData) {
-				console.log(`🌀 ${jsonData}`);
 				await model.create({ data });
 			}
 			console.log(`✅ Seeded ${modelName} with data from ${fileName}`);
