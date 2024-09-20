@@ -7,6 +7,6 @@ export const getAllProjectController = async (req: Request, res: Response) => {
 		return res.status(200).json(projects);
 	} catch (error: any) {
 		console.error(error);
-		return res.status(500).json({ message: "Something went wrong", error });
+		return res.status(500).json({ message: "Something went wrong with fetching all projects", error });
 	}
 };
