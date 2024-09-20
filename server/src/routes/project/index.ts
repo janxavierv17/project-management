@@ -11,7 +11,7 @@ const router = Router();
 
 router.get("/", getAllProjectController);
 router.get("/project", getProjectByIdController);
-router.post("/", postProjectController);
+router.post("/project", postProjectController);
 router.delete("/project/:id", deleteProjectByIdController);
 router.put("/project/:id", updateProjectByIdController);
 
