@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import { getTasksById } from "../services";
 
 interface IRequest extends Request {
-	query: { id: string };
+	params: { id: string };
 }
 
 export const getTaskByIdController = async (req: IRequest, res: Response) => {
 	try {
-		const { id } = req.query;
+		const { id } = req.params;
 		const task = await getTasksById(Number(id));
 		if (!task) throw new Error(`A task with an id of ${id} does not exist`);
 

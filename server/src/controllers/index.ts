@@ -6,6 +6,7 @@ export { getAllProjectController } from "./getProjectsController";
 
 export { getTasksController } from "./getTasksController";
 export { getTaskByIdController } from "./getTaskByIdController";
+export { getTaskByProjectIdController } from "./getTaskByProjectIdController";
 export { postTaskController } from "./postTaskController";
 export { deleteTaskByIdController } from "./deleteTaskByIdController";
 export { updateTasksByIdController } from "./updateTaskByIdController";

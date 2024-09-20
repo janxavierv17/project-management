@@ -4,6 +4,10 @@ export const getAllTasks = async () => {
 	return db.task.findMany();
 };
 
+export const getTaskByProjectId = async (projectId: number) => {
+	return db.task.findMany({ where: { projectId } });
+};
+
 export const getTasksById = async (id: number) => {
 	return db.task.findUnique({ where: { id } });
 };
@@ -37,6 +41,7 @@ export const postTask = async (payload: Task) => {
 			points,
 			projectId,
 			authorUserId,
+			assignedUserId,
 		},
 	});
 };
