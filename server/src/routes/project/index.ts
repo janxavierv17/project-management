@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 router.get("/", getAllProjectController);
-router.get("/project/:id", getProjectByIdController);
+router.get("/project", getProjectByIdController);
 router.post("/", postProjectController);
 router.delete("/project/:id", deleteProjectByIdController);
 router.put("/project/:id", updateProjectByIdController);
