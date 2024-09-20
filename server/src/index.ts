@@ -8,6 +8,7 @@ import morgan from "morgan";
 const app = express();
 // ROUTE IMPORTS
 import projectRoutes from "./routes/project";
+import taskRoutes from "./routes/tasks";
 
 // CONFIGURATIONS
 dotenv.config();
@@ -22,6 +23,8 @@ app.use(cors());
 // ROUTES
 app.get("/healthcheck", (req, res) => res.send("Hello!"));
 app.use("/projects", projectRoutes);
+app.use("/tasks", taskRoutes);
+
 // SERVER
 const { PORT } = process.env || 3000;
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
