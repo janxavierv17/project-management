@@ -91,7 +91,12 @@ export const updateTaskById = async (id: number, payload: Task) => {
 	});
 };
 
-type TaskStatus = "To Do" | "Work In Progress" | "Done";
+enum TaskStatus {
+	TO_DO = "To Do",
+	WORK_IN_PROGRESS = "Work In Progress",
+	UNDER_REVIEW = "Under Review",
+	COMPLETED = "Completed",
+}
 export const updateTaskStatusById = async (id: number, status: TaskStatus) => {
 	return db.task.update({
 		where: { id },

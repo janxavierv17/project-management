@@ -1,7 +1,12 @@
 import { Request, Response } from "express";
 import { updateTaskStatusById } from "../services";
 
-type TaskStatus = "To Do" | "Work In Progress" | "Done";
+enum TaskStatus {
+	TO_DO = "To Do",
+	WORK_IN_PROGRESS = "Work In Progress",
+	UNDER_REVIEW = "Under Review",
+	COMPLETED = "Completed",
+}
 interface IRequest extends Request {
 	params: {
 		id: string;
@@ -16,7 +21,12 @@ export const updateTaskStatusByIdController = async (req: IRequest, res: Respons
 	const status = req.body.status;
 
 	try {
-		if (status !== "To Do" && status !== "Work In Progress" && status !== "Done") {
+		if (
+			status !== "To Do" &&
+			status !== "Work In Progress" &&
+			status !== "Under Review" &&
+			status !== "Completed"
+		) {
 			throw new Error(`Status can only either be in To Do, Work In Progress or Done`);
 		}
 
