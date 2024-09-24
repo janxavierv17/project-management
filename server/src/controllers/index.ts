@@ -10,3 +10,4 @@ export { getTaskByProjectIdController } from "./getTaskByProjectIdController";
 export { postTaskController } from "./postTaskController";
 export { deleteTaskByIdController } from "./deleteTaskByIdController";
 export { updateTasksByIdController } from "./updateTaskByIdController";
+export { updateTaskStatusByIdController } from "./updateTaskStatusByIdController";

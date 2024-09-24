@@ -6,6 +6,7 @@ import {
 	getTasksController,
 	postTaskController,
 	updateTasksByIdController,
+	updateTaskStatusByIdController,
 } from "../../controllers";
 
 const app = Router();
@@ -16,5 +17,6 @@ app.get("/task", getTaskByProjectIdController);
 app.post("/task", postTaskController);
 app.delete("/task/:id", deleteTaskByIdController);
 app.put("/task", updateTasksByIdController);
+app.patch("/task/:id", updateTaskStatusByIdController);
 
 export default app;

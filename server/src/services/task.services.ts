@@ -5,7 +5,15 @@ export const getAllTasks = async () => {
 };
 
 export const getTaskByProjectId = async (projectId: number) => {
-	return db.task.findMany({ where: { projectId } });
+	return db.task.findMany({
+		where: { projectId },
+		include: {
+			author: true,
+			assignee: true,
+			comments: true,
+			attachments: true,
+		},
+	});
 };
 
 export const getTasksById = async (id: number) => {
@@ -79,6 +87,16 @@ export const updateTaskById = async (id: number, payload: Task) => {
 			projectId,
 			authorUserId,
 			assignedUserId,
+		},
+	});
+};
+
+type TaskStatus = "To Do" | "Work In Progress" | "Done";
+export const updateTaskStatusById = async (id: number, status: TaskStatus) => {
+	return db.task.update({
+		where: { id },
+		data: {
+			status,
 		},
 	});
 };

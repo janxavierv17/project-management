@@ -6,4 +6,5 @@ export {
 	postTask,
 	deleteTaskById,
 	updateTaskById,
+	updateTaskStatusById,
 } from "./task.services";
