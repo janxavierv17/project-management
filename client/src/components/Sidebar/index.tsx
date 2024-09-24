@@ -24,6 +24,7 @@ import { usePathname } from 'next/navigation';
 import { useAppDispatch } from '@/redux/store';
 import Link from 'next/link';
 import { setIsSidebarCollapsed } from '@/redux/state';
+import { useGetProjectsQuery } from '@/redux/api';
 
 const mainNavLinks = [
   { icon: Home, label: 'Home', href: '/' },
@@ -69,6 +70,7 @@ export function Sidebar() {
   const [showProjects, setShowProjects] = useState(true);
   const [showPriority, setShowPriority] = useState(true);
 
+  const { data: projects } = useGetProjectsQuery();
   const dispatch = useAppDispatch();
   const { isSidebarCollapsed } = useAppSelector((state) => state.global);
 
@@ -133,6 +135,16 @@ export function Sidebar() {
           <span className="">Projects</span>
           {showProjectsChevron}
         </button>
+
+        {showProjects &&
+          projects?.map((project) => (
+            <SidebarLink
+              key={project.id}
+              icon={Briefcase}
+              label={project.name}
+              href={`/projects/${project.id}`}
+            />
+          ))}
 
         {/* PRIORITY LIST */}
         <button
